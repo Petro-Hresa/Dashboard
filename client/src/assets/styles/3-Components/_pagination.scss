@@ -1,0 +1,61 @@
+.pagination{
+   display: flex;
+   align-items: center;
+   button{
+       width: 26px;
+       height: 24px;
+       background: #F5F5F5;
+       border: 1px solid #EEEEEE;
+       border-radius: 4px;
+       padding: 6px;
+       font-family: 'Poppins';
+       font-weight: 500;
+       font-size: 12px;
+       line-height: 100%;
+       letter-spacing: -0.01em;
+       color: #404B52;
+       text-align: center;
+       &:first-child{
+           margin-right: 12px;
+       }
+   }
+
+   &__list{
+       display: flex;
+       align-items: center;
+       padding: 0;
+       list-style: none;
+
+       li.points{
+           background: none;
+           border: none;
+           margin-right: 12px;
+       }
+   }
+
+   &__item{
+       width: 26px;
+       height: 24px;
+       background: #F5F5F5;
+       border: 1px solid #EEEEEE;
+       border-radius: 4px; 
+       padding: 6px 0;
+       font-family: 'Poppins';
+       font-weight: 500;
+       font-size: 12px;
+       line-height: 100%;
+       letter-spacing: -0.01em;
+       color: #404B52;
+       margin-right: 12px;
+       text-align: center;
+       &_active{
+           background: #5932EA;
+           border: 1px solid #5932EA;
+           color: #ffffff;
+       }
+   }
+
+ 
+
+   
+}

@@ -1,0 +1,38 @@
+.nav {
+    margin-top: 52px;
+
+    &__item{
+        position: relative;
+        margin-bottom: 15px;
+        overflow: hidden;
+        border-radius: 8px;
+       
+
+        &:hover {
+            background-color: #F9FBFF;
+            transition: background-color .3s linear;
+        }
+
+       
+    }
+
+   &__link {
+        display: flex;
+        align-items: center;
+        padding: 13px;
+        color: $color-primary;
+
+        &.active{
+            background: rgb(89, 50, 234);
+            color: $white;  
+        }
+    }
+
+ 
+    &__icon{
+        margin-right: 16px;
+    }
+
+
+}
+

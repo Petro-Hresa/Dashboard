@@ -1,0 +1,278 @@
+.customers {
+
+   background: $white;
+   box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+   border-radius: 30px;
+
+   &__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0;
+
+      @media screen and (max-width: 580px) {
+         display: block;
+      }
+
+      .title {
+         padding: 0 38px;
+
+         &__h2 {
+            font-family: 'Poppins';
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 33px;
+            letter-spacing: -0.01em;
+            color: $black;
+         }
+
+         &__status {
+            color: #16C098;
+         }
+      }
+   }
+
+   .cuctomers-table__wrap {
+      padding: 0 40px 40px 40px;
+
+      @media screen and (max-width: 580px) {
+         padding: 0 15px 40px 15px;
+      }
+
+      .table {
+         width: 100%;
+
+         &__thead {
+
+            th {
+               position: relative;
+
+               &:before {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  height: 1px;
+                  width: 100%;
+                  background-color: #B5B7C0;
+             
+               }
+
+               &:first-child {
+                  &:before {
+                     left: -40px;
+                     width: calc(100% + 40px);
+                  }
+               }
+
+               &:last-child {
+                  &:before {
+                     width: calc(100% + 40px);
+                  }
+               }
+
+               @media screen and (max-width: $xxl) {
+                  display: none;
+               }
+            }
+         }
+
+         tbody {
+
+            @media screen and (max-width: $xxl) {
+               display: flex;
+               flex-wrap: wrap;
+
+               tr {
+                  width: 50%;
+                  padding-bottom: 40px;
+
+                  &:nth-child(even) {
+
+                     td {
+                        &::before {
+                           display: none;
+                        }
+
+                        @media screen and (max-width: $lg) {
+                           &::before {
+                              display: block;
+                           }
+                        }
+                     }
+                  }
+
+                  &:nth-child(odd) {
+
+                     td {
+                        padding-left: 50%;
+
+                        @media screen and (max-width: $md) {
+                           padding-left: 50%;
+                        }
+                     }
+
+
+                  }
+
+                  @media screen and (max-width: $lg) {
+                     width: 100%;
+
+                  }
+               }
+            }
+
+         }
+
+
+         th,
+         td {
+
+            text-align: left;
+            padding-right: 40px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+           
+            @media screen and  (max-width: $xxl) {
+                overflow: hidden;
+            }
+
+            &:last-child {
+               padding: 0;
+            }
+
+            &:hover {
+               text-overflow: clip;
+            }
+
+
+         }
+
+         th {
+            color: #B5B7C0;
+            padding: 10px 40px 14px 0;
+            margin: 0 -40px;
+         }
+
+         td {
+            color: $color-secondary;
+            padding: 24px 40px 24px 0;
+            position: relative;
+            border-bottom: 1px solid;
+       
+
+            @media screen and (max-width: $xxl) {
+               padding: 15px 40px 15px 0;
+               display: block;
+               padding-left: 40%;
+               width: 100%;
+               border-bottom: 1px solid #B5B7C0;
+
+               &:nth-child(even) {
+                  background-color: #F9FBFF;
+               }
+
+               &::before {
+                  display: block;
+               }
+
+               &:first-child {
+                  margin-left: 0px;
+                  border-top: 1px solid $black;
+               }
+
+               &:last-child {
+                  padding: 15px 0 15px 40%;
+
+                  @media screen and (max-width: $lg) {
+                     padding-left: 50%;
+                  }
+
+                  @media screen and (max-width: $md) {
+                     padding-left: 50%;
+                  }
+
+               }
+
+            }
+
+            @media screen and (max-width: $lg) {
+               padding-left: 50%;
+            }
+
+
+            &:first-child {
+               margin-left: 40px;
+            }
+
+
+            &::before {
+               content: attr(data-label);
+               position: absolute;
+               left: 0%;
+               top: 50%;
+               transform: translateY(-50%);
+               @extend .text-500;
+               color: #B5B7C0;
+               display: none;
+
+               @media screen and (max-width: 400px) {
+                  font-size: 13px;
+               }
+            }
+          
+         }
+
+         &__row {
+
+     
+
+            button {
+               padding: 4px 8px;
+               width: 80px;
+               text-align: center;
+
+            }
+
+            .active {
+               background: rgba(22, 192, 152, 0.38);
+               border: 1px solid #00B087;
+               border-radius: 4px;
+               color: #008767;
+            }
+
+            .inactive {
+               background: #FFC5C5;
+               border: 1px solid #DF0404;
+               border-radius: 4px;
+               color: #DF0404;
+            }
+         }
+
+      }
+
+
+      .more {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 30px;
+
+         @media screen and (max-width: 1140px) {
+            margin-top: 0;
+            flex-direction: column-reverse;
+         }
+
+         &__show-data {
+            color: #B5B7C0;
+
+            @media screen and (max-width: 1140px) {
+               margin-top: 30px;
+            }
+         }
+
+      }
+
+   }
+
+}

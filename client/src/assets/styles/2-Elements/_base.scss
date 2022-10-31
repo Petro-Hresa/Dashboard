@@ -1,0 +1,57 @@
+
+ html {
+   line-height: 1.15; /* 1 */
+   -webkit-text-size-adjust: 100%; /* 2 */
+ }
+ 
+
+ 
+ body {
+   margin: 0;
+ }
+
+ main {
+   display: block;
+ }
+
+ 
+ h1 {
+   font-size: 2em;
+   margin: 0.67em 0;
+ }
+
+
+
+ ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+ 
+
+ 
+ a {
+   background-color: transparent;
+   text-decoration: none;
+   color:currentColor;
+ }
+
+ img {
+   border-style: none;
+ }
+ 
+ 
+ button,
+ input,
+ optgroup,
+ select,
+ textarea {
+   font-family: inherit; /* 1 */
+   font-size: 100%; /* 1 */
+   line-height: 1.15; /* 1 */
+   margin: 0; /* 2 */
+ }
+ 
+ [hidden] {
+   display: none;
+ }

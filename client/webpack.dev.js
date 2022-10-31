@@ -44,7 +44,9 @@ module.exports = {
             test: /\.(woff(2)?|eot|ttf|otf)$/,
             exclude: /node_modules/,
             type: 'asset/resource',
-            generator: {filename: "fonts/[name].[hash][ext]"},
+            generator: {
+               filename: "fonts/[name].[hash][ext]", 
+            },
          },
 
          {//scripts

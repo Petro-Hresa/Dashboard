@@ -51,7 +51,7 @@ module.exports = {
       assetModuleFilename: 'images/[hash][ext][query]',
       path: path.resolve(__dirname, 'dist/'),
       clean: true,
-      publicPath: '/',
+      publicPath: '../',
    },
 
    devServer: {
