@@ -1,44 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import { debounce } from '../../App'
-
-//componnents
 import Logo from '../../assets/images/logo.png'
+//componnents
 import Burger from '../Burger/_burger'
 import Navbar from '../Navbar/_navbar'
 import User from '../User/_user'
 
-const Header = (props) => {
+
+const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => {
-
-    window.addEventListener('resize', debounce(() => {
-
-      if (window.innerWidth < 768) {
-        setIsOpen(false)
-      }
-    }))
-
-  }, [isOpen])
-
-  function ClickBurger() {
-    if (window.innerWidth > 768) {
-      setIsOpen(!isOpen)
-    }
-  }
+  const [isHeadCap, setIsHeadCap] = useState(false)
 
   return (
     <header className="header">
-        <div className="header__start">
-          <a className="logo">
-              <img src={Logo} alt="logo" />
-          </a>
+      <div className="header__element">
+        <Burger />
+        <a className="logo">
+          <img src={Logo} alt="logo" />
+        </a>
+      </div>
+      <Navbar/>
 
-          <Burger />
-        </div>
-    
-        <div className="greeting">Hello Evano &#128075;, </div>
+      <User/>
     </header>
   )
 }

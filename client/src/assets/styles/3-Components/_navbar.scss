@@ -1,38 +1,51 @@
-.nav {
-    margin-top: 52px;
 
-    &__item{
+.nav {
+    margin: 52px 0;
+    padding: 0 28px;
+    flex: 1 1 auto;
+    overflow: auto;
+
+    &__item {
         position: relative;
         margin-bottom: 15px;
         overflow: hidden;
         border-radius: 8px;
-       
+
 
         &:hover {
             background-color: #F9FBFF;
             transition: background-color .3s linear;
         }
 
-       
+
     }
 
-   &__link {
+    &__link {
         display: flex;
         align-items: center;
         padding: 13px;
         color: $color-primary;
+        position: relative;
 
-        &.active{
+        &.active {
             background: rgb(89, 50, 234);
-            color: $white;  
+            color: $white;
         }
+
+
     }
 
- 
-    &__icon{
+
+    &__icon {
         margin-right: 16px;
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
     }
 
 
 }
-

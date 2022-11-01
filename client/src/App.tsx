@@ -1,24 +1,34 @@
 import React, { useState } from "react";
 import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
 //components
-import Dashboard from "./dashboard";
-import Customers from "./customers";
 import Header from './components/Header/_header';
-import './assets/styles/style.scss'
 import Navbar from "./components/Navbar/_navbar";
+import Dashboard from "./Dashboard";
+import Product from "./product";
+import Customers from "./Customers";
+import Income from "./Income";
+import Promote from "./Promote";
+import Help from "./Help";
+import './assets/styles/style.scss'
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <div className="wrap-content">
-        <Header/>
-        <Navbar/>
+        <Header />
         <main className="main">
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/customers" element={<Customers />} />
-        </Routes>
+          <header className="main__header">
+            <div className="greeting">Hello Evano <span>👋🏼,</span></div>
+          </header>
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/promote" element={<Promote />} />
+            <Route path="/help" element={<Help />} />
+          </Routes>
         </main>
       </div>
     </BrowserRouter>
@@ -34,3 +44,24 @@ export const debounce = (fn: Function, ms = 300) => {
     timeoutId = setTimeout(() => fn.apply(this, args), ms);
   };
 };
+
+// export function movingCap(fnStateCap: (arg: boolean) => void, tag: string) {
+
+//   if (window.innerWidth < 768 && tag == 'header') fnStateCap(true)
+//   if (window.innerWidth > 768 && tag == 'navbar') fnStateCap(true)
+
+//   window.addEventListener('resize', debounce(() => {
+
+//     switch (tag) {
+//       case 'header':
+//         window.innerWidth < 768 ? fnStateCap(true) : fnStateCap(false)
+//       break;
+
+//       case 'navbar':
+//         window.innerWidth > 768 ?  fnStateCap(true) : fnStateCap(false)
+//       break;
+//     }
+
+//   }))
+// }
+

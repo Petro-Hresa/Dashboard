@@ -1,15 +1,15 @@
 .user {
+    padding: 0 28px ;
     display: flex;
-    margin-bottom: 76px;
-    margin-top: 30px;
+    margin-bottom: 40px;
     align-items: center;
     overflow: hidden;
     min-width: 42px;
     min-height: 42px;
 
-    @media screen and (max-width: $md) {
-        margin-bottom: 40px;
-    }
+    // @media screen and (max-width: $md) {
+    //     margin-bottom: 40px;
+    // }
 
     &__icon {
         width: 42px;

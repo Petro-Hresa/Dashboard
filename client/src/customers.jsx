@@ -11,13 +11,13 @@ const Customers = () => {
 
    return (
       <section className="customers">
-         <div className="customers__head">
+         <header className="customers__head">
             <div className="title">
-               <h2 className='title__h2'>All Customers</h2>
+               <h1 className='title__h1'>All Customers</h1>
                <div className="title__status text-400">Active Members</div>
             </div>
             <Search />
-         </div>
+         </header>
 
          <div className="cuctomers-table__wrap">
             <table className='table'>
@@ -47,10 +47,10 @@ const Customers = () => {
                </tbody>
             </table>
 
-            <div className="more">
+            <footer className="more">
                <div className="more__show-data text-500">Showing data 1 to 8 of  256K entries</div>
                <Pagination />
-            </div>
+            </footer>
          </div>
       </section>
    )

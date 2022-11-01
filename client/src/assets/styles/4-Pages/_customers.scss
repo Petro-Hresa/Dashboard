@@ -1,8 +1,8 @@
 .customers {
-
    background: $white;
    box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
    border-radius: 30px;
+   width: fit-content;
 
    &__head {
       display: flex;
@@ -17,7 +17,7 @@
       .title {
          padding: 0 38px;
 
-         &__h2 {
+         &__h1 {
             font-family: 'Poppins';
             font-weight: 600;
             font-size: 22px;
