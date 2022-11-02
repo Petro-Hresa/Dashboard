@@ -3,6 +3,7 @@
   "main": "index.js",
   "author": "Hresa",
   "private": true,
+  "proxy": "http://localhost:3001",
   "scripts": {
     "dev": "webpack --config webpack.dev.js",
     "build": "NODE_ENV=production webpack",
@@ -44,4 +45,5 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2"
   }
+
 }

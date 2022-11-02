@@ -71,19 +71,8 @@ body {
                 color: $black;
                 margin-bottom: 51px;
         
-        
                 @media screen and (max-width: $md) {
                     display: none;
-                }
-        
-                @media screen and (max-width: 400px) {
-                    padding: 0 20px 0 40px;
-                }
-        
-                &__text {
-                    @media screen and (max-width:$md) {
-                        padding: 15px 0;
-                    }
                 }
         
             }

@@ -1,13 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 // import { customers } from './elements/customers.members';
 //componnents
 import Search from './components/Search/_search';
 import Pagination from './components/Pagination/_pagination';
+import axios from 'axios';
 
 
 const Customers = () => {
-
+   const [arrCustomers , setArrCustomers] = useState([])
    const arrNameCols = ['Customer Name', 'Company', 'Phone Number', 'Email', 'Country', 'Status']
+
+   useEffect(()=>{
+      axios.get('http://localhost:3001/customers').then((req, res)=>{
+         setArrCustomers(req.data);
+      })
+   },[])
+
+
+   const postStatus = async (e, id, status) =>{
+      e.preventDefault()
+      await axios.post('http://localhost:3001/customers/status', {id, status})
+   }
+
+
+
 
    return (
       <section className="customers">
@@ -33,16 +49,23 @@ const Customers = () => {
                </thead>
                <tbody>
                   {
-                     // customers.map((costomer) => {
-                     //    return <tr key={costomer.id} className="table__row text-500">
-                     //       <td data-label="Customer Name">{costomer.name}</td>
-                     //       <td data-label="Company">{costomer.company}</td>
-                     //       <td data-label="Phone Number">{costomer.phone}</td>
-                     //       <td data-label="Email">{costomer.email}</td>
-                     //       <td data-label="Country">{costomer.country}</td>
-                     //       <td data-label="Status"><button className={`text-500 ${costomer.status ? "active" : "inactive"}`}>{costomer.status ? "Active" : "Inactive"}</button></td>
-                     //    </tr>
-                     // })
+                     arrCustomers.map((costomer) => {
+                        return <tr key={costomer.id} className="table__row text-500">
+                           <td data-label="Customer Name">{costomer.name}</td>
+                           <td data-label="Company">{costomer.company}</td>
+                           <td data-label="Phone Number">{costomer.phone}</td>
+                           <td data-label="Email">{costomer.email}</td>
+                           <td data-label="Country">{costomer.country}</td>
+                           <td data-label="Status">
+                              <button 
+                                 className={`text-500 ${costomer.status ? "active" : "inactive"}`}
+                                 onClick={(e)=>postStatus(e, costomer.id, !costomer.status)}
+                              >
+                              {costomer.status ? "Active" : "Inactive"}
+                              </button>
+                           </td>
+                        </tr>
+                     })
                   }
                </tbody>
             </table>
