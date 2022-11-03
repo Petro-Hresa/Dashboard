@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 // import { customers } from './elements/customers.members';
 //componnents
 import Search from './components/Search/_search';
@@ -7,19 +7,44 @@ import axios from 'axios';
 
 
 const Customers = () => {
-   const [arrCustomers , setArrCustomers] = useState([])
+   const [arrCustomers, setArrCustomers] = useState([])
    const arrNameCols = ['Customer Name', 'Company', 'Phone Number', 'Email', 'Country', 'Status']
 
-   useEffect(()=>{
-      axios.get('http://localhost:3001/customers').then((req, res)=>{
+   useEffect(() => {
+      axios.get('http://localhost:3001/customers').then((req, res) => {
          setArrCustomers(req.data);
+         console.log(req.data);
       })
-   },[])
+   }, [])
 
+   let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
 
-   const postStatus = async (e, id, status) =>{
-      e.preventDefault()
-      await axios.post('http://localhost:3001/customers/status', {id, status})
+   const putStatus = ( id, status) => {
+       axios.post('http://localhost:3001/customers/status', { id, status })
+      .then((res) => {
+         setArrCustomers(
+            arrCustomers.map(customer => {
+               return customer.id == id ?
+                  {
+                     id: customer.id,
+                     name: customer.name,
+                     company: customer.company,
+                     phone: customer.phone,
+                     email: customer.email,
+                     country: customer.country,
+                     status 
+                  } : customer
+            })
+         );
+      })
+      .catch((e) => {
+         console.log(e ,"This is an error from catch()");
+      });
    }
 
 
@@ -57,11 +82,11 @@ const Customers = () => {
                            <td data-label="Email">{costomer.email}</td>
                            <td data-label="Country">{costomer.country}</td>
                            <td data-label="Status">
-                              <button 
+                              <button
                                  className={`text-500 ${costomer.status ? "active" : "inactive"}`}
-                                 onClick={(e)=>postStatus(e, costomer.id, !costomer.status)}
+                                 onClick={(e) => putStatus(costomer.id, !costomer.status)}
                               >
-                              {costomer.status ? "Active" : "Inactive"}
+                                 {costomer.status ? "Active" : "Inactive"}
                               </button>
                            </td>
                         </tr>
