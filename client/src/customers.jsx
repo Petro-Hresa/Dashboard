@@ -5,50 +5,46 @@ import Search from './components/Search/_search';
 import Pagination from './components/Pagination/_pagination';
 import axios from 'axios';
 
+const CustomersSE = ()=>{
 
-const Customers = () => {
    const [arrCustomers, setArrCustomers] = useState([])
    const arrNameCols = ['Customer Name', 'Company', 'Phone Number', 'Email', 'Country', 'Status']
 
    useEffect(() => {
       axios.get('http://localhost:3001/customers').then((req, res) => {
          setArrCustomers(req.data);
-         console.log(req.data);
       })
    }, [])
 
-   let axiosConfig = {
-      headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
-      }
-    };
 
-   const putStatus = ( id, status) => {
-       axios.post('http://localhost:3001/customers/status', { id, status })
+   const updataStatus = ( id, status) => {
+       axios.put('http://localhost:3001/customers/status', { id, status })
       .then((res) => {
          setArrCustomers(
             arrCustomers.map(customer => {
                return customer.id == id ?
                   {
-                     id: customer.id,
-                     name: customer.name,
-                     company: customer.company,
-                     phone: customer.phone,
-                     email: customer.email,
-                     country: customer.country,
+                     ...customer,
                      status 
                   } : customer
             })
          );
       })
-      .catch((e) => {
-         console.log(e ,"This is an error from catch()");
-      });
+
    }
 
+   return <CustomersUI
+      arrNameCols={arrNameCols}
+      arrCustomers={arrCustomers}
+      updataStatus={updataStatus}
+   />
+
+}
+
+export default CustomersSE
 
 
+const CustomersUI = (props) => {
 
    return (
       <section className="customers">
@@ -65,7 +61,7 @@ const Customers = () => {
                <thead className='table__thead'>
                   <tr>
                      {
-                        arrNameCols.map((colName, i) => {
+                       props.arrNameCols.map((colName, i) => {
                            return <th key={i} className='text-500'>{colName}</th>
                         })
                      }
@@ -74,7 +70,7 @@ const Customers = () => {
                </thead>
                <tbody>
                   {
-                     arrCustomers.map((costomer) => {
+                     props.arrCustomers.map((costomer) => {
                         return <tr key={costomer.id} className="table__row text-500">
                            <td data-label="Customer Name">{costomer.name}</td>
                            <td data-label="Company">{costomer.company}</td>
@@ -84,7 +80,7 @@ const Customers = () => {
                            <td data-label="Status">
                               <button
                                  className={`text-500 ${costomer.status ? "active" : "inactive"}`}
-                                 onClick={(e) => putStatus(costomer.id, !costomer.status)}
+                                 onClick={(e) => props.updataStatus(costomer.id, !costomer.status)}
                               >
                                  {costomer.status ? "Active" : "Inactive"}
                               </button>
@@ -104,4 +100,4 @@ const Customers = () => {
    )
 }
 
-export default Customers
+
