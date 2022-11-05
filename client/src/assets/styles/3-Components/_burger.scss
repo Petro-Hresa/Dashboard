@@ -17,10 +17,12 @@
 //    transform: translateX(-12px);
 // }
 
-@media screen and (max-width: $xxl) {
+@media screen and (max-width: $max-xxl) {
 
    .burger {
       padding: 10px;
+      margin-right: 20px;
+      
       &__line {
          width: 25px;
          height: 2px;

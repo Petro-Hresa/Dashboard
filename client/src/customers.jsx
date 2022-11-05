@@ -5,31 +5,32 @@ import Search from './components/Search/_search';
 import Pagination from './components/Pagination/_pagination';
 import axios from 'axios';
 
-const CustomersSE = ()=>{
+const CustomersSE = () => {
 
    const [arrCustomers, setArrCustomers] = useState([])
    const arrNameCols = ['Customer Name', 'Company', 'Phone Number', 'Email', 'Country', 'Status']
 
    useEffect(() => {
-      axios.get('http://localhost:3001/customers').then((req, res) => {
+      axios.get('http://localhost:3001/customers?page=1&count=4').then((req, res) => {
          setArrCustomers(req.data);
+         console.log(req);
       })
    }, [])
 
-
-   const updataStatus = ( id, status) => {
-       axios.put('http://localhost:3001/customers/status', { id, status })
-      .then((res) => {
-         setArrCustomers(
-            arrCustomers.map(customer => {
-               return customer.id == id ?
-                  {
-                     ...customer,
-                     status 
-                  } : customer
-            })
-         );
-      })
+   const updataStatus = (id, status) => {
+      axios.put('http://localhost:3001/customers/status', { id, status })
+         .then((res) => {
+            setArrCustomers(
+               arrCustomers.map(customer => {
+                  return customer.id == id ?
+                     {
+                        ...customer,
+                        status
+                     } 
+                  : customer
+               })
+            );
+         })
 
    }
 
@@ -61,11 +62,10 @@ const CustomersUI = (props) => {
                <thead className='table__thead'>
                   <tr>
                      {
-                       props.arrNameCols.map((colName, i) => {
+                        props.arrNameCols.map((colName, i) => {
                            return <th key={i} className='text-500'>{colName}</th>
                         })
                      }
-
                   </tr>
                </thead>
                <tbody>

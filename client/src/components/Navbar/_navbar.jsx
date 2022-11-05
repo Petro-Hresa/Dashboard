@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import IconSvg from '../Elements/svg'
 
 
-const Navbar = () => {
+const Navbar = (props) => {
 
 
    return (
@@ -16,7 +16,9 @@ const Navbar = () => {
                   to="/dashboard"
                   className="nav__link text-500"
                >
-                  <IconSvg name="dashboard" class="nav__icon" />
+                  <span className="nav__icon">
+                     <IconSvg name="dashboard" />
+                  </span>
                   Dashboard
                </NavLink>
             </li>
@@ -26,9 +28,11 @@ const Navbar = () => {
                   to="/product"
                   className="nav__link text-500"
                >
-                  <IconSvg name="product" class="nav__icon" />
+                  <span className="nav__icon">
+                  <IconSvg name="product"/>
+                  </span>
                   Product
-                  <IconSvg name="arrow" class="nav__arrow" />
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
                </NavLink>
             </li>
 
@@ -38,9 +42,11 @@ const Navbar = () => {
                   to="/customers"
                   className="nav__link text-500"
                >
-                  <IconSvg name="customers" class="nav__icon" />
+                  <span className="nav__icon">
+                  <IconSvg name="customers"/>
+                  </span>
                   Customers
-                  <IconSvg name="arrow" class="nav__arrow" />
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
                </NavLink>
             </li>
 
@@ -49,9 +55,11 @@ const Navbar = () => {
                   to="/income"
                   className="nav__link text-500"
                >
-                  <IconSvg name="income" class="nav__icon" />
+                  <span className="nav__icon"> 
+                  <IconSvg name="income" />
+                  </span>
                   Income
-                  <IconSvg name="arrow" class="nav__arrow" />
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
                </NavLink>
             </li>
 
@@ -60,9 +68,11 @@ const Navbar = () => {
                   to="/promote"
                   className="nav__link text-500"
                >
-                  <IconSvg name="promote" class="nav__icon" />
+                  <span className="nav__icon">
+                  <IconSvg name="promote"  />
+                  </span> 
                   Promote
-                  <IconSvg name="arrow" class="nav__arrow" />
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
                </NavLink>
             </li>
 
@@ -71,9 +81,11 @@ const Navbar = () => {
                   to="/help"
                   className="nav__link text-500"
                >
-                  <IconSvg name="help" class="nav__icon" />
+                  <span className="nav__icon">
+                  <IconSvg name="help"  />
+                  </span>
                   Help
-                  <IconSvg name="arrow" class="nav__arrow" />
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
                </NavLink>
             </li>
 

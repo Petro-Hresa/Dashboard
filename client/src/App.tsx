@@ -18,17 +18,19 @@ const App = () => {
       <div className="wrap-content">
         <Header />
         <main className="main">
-          <header className="main__header">
+          {/* <header className="main__header">
             <div className="greeting">Hello Evano <span>👋🏼,</span></div>
-          </header>
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/income" element={<Income />} />
-            <Route path="/promote" element={<Promote />} />
-            <Route path="/help" element={<Help />} />
-          </Routes>
+          </header> */}
+          <div className="main__content">
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              {/* <Route path="/product" element={<Product />} /> */}
+              {/* <Route path="/customers" element={<Customers />} /> */}
+              {/* <Route path="/income" element={<Income />} /> */}
+              {/* <Route path="/promote" element={<Promote />} /> */}
+              {/* <Route path="/help" element={<Help />} /> */}
+            </Routes>
+          </div>
         </main>
       </div>
     </BrowserRouter>
@@ -37,7 +39,7 @@ const App = () => {
 
 export default App
 
-export const debounce = (fn: Function, ms = 300) => {
+export const debounce = (fn: Function, ms = 1) => {
   let timeoutId: ReturnType<typeof setTimeout>;
   return function (this: any, ...args: any[]) {
     clearTimeout(timeoutId);
@@ -45,23 +47,23 @@ export const debounce = (fn: Function, ms = 300) => {
   };
 };
 
-// export function movingCap(fnStateCap: (arg: boolean) => void, tag: string) {
+export function changeState(setState: (arg: boolean) => void, tag: string) {
 
-//   if (window.innerWidth < 768 && tag == 'header') fnStateCap(true)
-//   if (window.innerWidth > 768 && tag == 'navbar') fnStateCap(true)
+  if (window.innerWidth <= 768 && tag == 'header') setState(true)
+  // if (window.innerWidth > 768 && tag == 'navbar') fnStateCap(true)
 
-//   window.addEventListener('resize', debounce(() => {
+  window.addEventListener('resize', debounce(() => {
 
-//     switch (tag) {
-//       case 'header':
-//         window.innerWidth < 768 ? fnStateCap(true) : fnStateCap(false)
-//       break;
+    switch (tag) {
+      case 'header':
+        window.innerWidth <= 768 ? setState(true) : setState(false)
+      break;
 
-//       case 'navbar':
-//         window.innerWidth > 768 ?  fnStateCap(true) : fnStateCap(false)
-//       break;
-//     }
+      // case 'navbar':
+      //   window.innerWidth > 768 ?  fnStateCap(true) : fnStateCap(false)
+      // break;
+    }
 
-//   }))
-// }
+  }))
+}
 

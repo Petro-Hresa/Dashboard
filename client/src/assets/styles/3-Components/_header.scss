@@ -1,7 +1,9 @@
-
-
 .header {
-    width:$headerMaxWidth;
+
+    &>*:not(:last-child){
+        margin-bottom: 20px;
+    }
+    width: $headerMaxWidth;
     min-width: $headerMaxWidth;
     display: flex;
     flex-direction: column;
@@ -9,13 +11,70 @@
     background: $white;
     box-shadow: 0px 0px 60px rgba(226, 236, 249, 0.5);
     overflow-y: auto;
-    @media screen and (min-width: $lg) {
-       
+    transition: width .3s linear , min-width .3s linear;
+
+    @media screen and (min-width: $min-md) and (max-width: $max-xxl) {
+
+        &_active{
+            width: $headerMinWidthDesctop;
+            min-width: $headerMinWidthDesctop;
+            transition: width .3s linear , min-width .3s linear;
+        }        
     }
 
-    &__element{
+
+    @media screen and (max-width: $max-md) {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        z-index: 10;
+        width: $headerMinWidthMobile;
+        min-width: $headerMinWidthMobile;
+
+        &_active{
+            width: $headerMinWidthMobile;
+            min-width: $headerMinWidthMobile;
+            left: 0;
+      
+        }        
+    }
+
+    &__element {
         padding: 0 31px;
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: $max-md) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: calc(100% - 40px);
+            padding: 20px;
+            background-color: $white;
+        }
+
+        @media screen and (max-width: $max-xxl) {
+            justify-content: space-between;
+        }
+
+        
+
+        .logo {
+            width: 100%;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    &__link-logo{
+        max-width: 135px;
+        @media screen and (min-width: $min-xxl) {
+            max-width: 195px;
+            min-height: 39px;
+        }
+
     }
 }

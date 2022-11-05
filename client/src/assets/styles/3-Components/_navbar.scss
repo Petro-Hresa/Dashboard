@@ -5,6 +5,11 @@
     flex: 1 1 auto;
     overflow: auto;
 
+    @media screen and (max-width: $max-md) {
+       padding: 0 20px;
+       margin: 72px 0 20px;        
+    }
+
     &__item {
         position: relative;
         margin-bottom: 15px;
@@ -17,13 +22,12 @@
             transition: background-color .3s linear;
         }
 
-
     }
 
     &__link {
         display: flex;
         align-items: center;
-        padding: 13px;
+        padding: 13px 35px 13px 13px;
         color: $color-primary;
         position: relative;
 
@@ -38,6 +42,7 @@
 
     &__icon {
         margin-right: 16px;
+        line-height: 1;
     }
 
     &__arrow {
@@ -45,6 +50,14 @@
         top: 50%;
         right: 14px;
         transform: translateY(-50%);
+        transition: opacity .2s linear;
+
+        @media screen and (max-width: $max-xxl) {
+            &_hide{
+                opacity: 0;
+                transition: opacity .2s linear;
+            }
+        }
     }
 
 

@@ -5,10 +5,10 @@
 @import '3-Components/header';
 @import '3-Components/burger';
 @import '3-Components/navbar';
-@import '3-Components/user';
-@import '3-Components/search';
-@import '3-Components/pagination';
-@import '4-Pages/customers';
+// @import '3-Components/user';
+// @import '3-Components/search';
+// @import '3-Components/pagination';
+// @import '4-Pages/customers';
 
 
 
@@ -52,15 +52,20 @@ body {
 
 
     .main {
-        padding: 41px 71px;
         width: 100%;
-
-        @media screen and (min-width: $md) and (max-width: $xxl) {
-            padding: 41px;
-        }
+        overflow: hidden;
+        position: relative;
+        padding: 128px 71px 41px 71px; 
+        overflow-y: auto;
 
 
         &__header{
+            padding: 41px 71px 41px 71px;
+            position: fixed;
+            top: 0;
+            left: $headerMaxWidth;
+            width: calc(100% - 463px);
+            background-color: $bg-primary;
 
             .greeting {
 
@@ -69,14 +74,18 @@ body {
                 font-size: 24px;
                 line-height: 36px;
                 color: $black;
-                margin-bottom: 51px;
         
-                @media screen and (max-width: $md) {
+                @media screen and (max-width: $max-md) {
                     display: none;
                 }
         
             }
 
+        }
+
+        &__content{
+
+            border: 1px solid #000;
         }
 
     }
