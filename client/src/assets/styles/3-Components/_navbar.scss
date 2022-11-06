@@ -1,4 +1,3 @@
-
 .nav {
     margin: 52px 0;
     padding: 0 28px;
@@ -6,8 +5,8 @@
     overflow: auto;
 
     @media screen and (max-width: $max-md) {
-       padding: 0 20px;
-       margin: 72px 0 20px;        
+        padding: 0 20px;
+        margin: 72px 0 20px;
     }
 
     &__item {
@@ -50,15 +49,31 @@
         top: 50%;
         right: 14px;
         transform: translateY(-50%);
-        transition: opacity .2s linear;
 
-        @media screen and (max-width: $max-xxl) {
-            &_hide{
+        @media screen and (min-width: $min-md) and (max-width: $max-xxl) {
+            transition: opacity .2s linear;
+            &_hide {
                 opacity: 0;
-                transition: opacity .2s linear;
+            }
+        }
+
+        @media screen and (max-width: $max-md) {
+            &_hide {
+                opacity: 0;
             }
         }
     }
 
+    .header_active-touch &__arrow_hide {
+        @media screen and (max-width: $min-md) {
+            opacity: 0;
+        }
+    }
+
+    .header_active &__arrow_hide {
+        @media screen and (max-width: $min-md) {
+            opacity: 1;
+        }
+    }
 
 }

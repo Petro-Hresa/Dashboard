@@ -7,9 +7,10 @@
     min-width: 42px;
     min-height: 42px;
 
-    // @media screen and (max-width: $md) {
-    //     margin-bottom: 40px;
-    // }
+    @media screen and (max-width: $max-md) {
+ 
+       padding: 0 20px;
+    }
 
     &__icon {
         width: 42px;
@@ -39,6 +40,13 @@
 
     &__text {
         white-space: nowrap;
+
+        @media screen and (min-width: $min-md) {
+            transition: opacity .3s linear;            
+        }
+        &_hide{
+            opacity: 0;
+        }
     }
 
     &__name {
@@ -52,5 +60,11 @@
         line-height: 18px;
         letter-spacing: 0.01em;
         color: #757575;
+    }
+}
+
+.header_active .user__text_hide{
+    @media screen and (max-width: $max-md) {
+        opacity: 1;
     }
 }

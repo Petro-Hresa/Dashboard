@@ -25,20 +25,30 @@
 
     @media screen and (max-width: $max-md) {
         position: fixed;
+        width: $headerMinWidthMobile;
+        min-width: $headerMinWidthMobile;
         top: 0;
         bottom: 0;
         left: -100%;
         z-index: 10;
-        width: $headerMinWidthMobile;
-        min-width: $headerMinWidthMobile;
+        // transition: left .3s linear;    
 
         &_active{
-            width: $headerMinWidthMobile;
-            min-width: $headerMinWidthMobile;
             left: 0;
+            width: 100%;
+            min-width: 100%;
+        }
+   
+        &_active-touch{
+            left: 0;
+            // transition: left .3s linear;    
+        }
+        
       
-        }        
+
     }
+
+    
 
     &__element {
         padding: 0 31px;

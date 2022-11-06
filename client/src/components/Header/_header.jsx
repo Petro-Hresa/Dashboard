@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Logo from '../../assets/images/logo.png'
 import { changeState } from '../../App'
 //componnents
@@ -10,14 +10,41 @@ import User from '../User/_user'
 const Header = () => {
 
   const [burgerIsOpen, setBurgerStatus] = useState(false)
-  const [isHeadCap, setIsHeadCap] = useState(false)
+  const headerRef = useRef()
 
-  // useEffect(()=>{
-  //   changeState(setBurgerStatus,'header')
-  // },[])
+  useEffect(() => {
+    changeState(setBurgerStatus, 'header')
+  }, [headerRef])
+
+  document.addEventListener('touchmove', (event) => { });
+
+  window.addEventListener('mouseup', (e) => {
+  
+
+  })
+
+  useEffect(() => {
+
+    document.addEventListener('mousedown', (e) => {
+      e.stopPropagation();
+      if (!headerRef.current.contains(e.target)) {
+        changeState(setBurgerStatus, 'header')
+      }
+    })
+
+  }, [])
+
+  document.addEventListener("touchmove", (e) => {
+    if (window.innerWidth <= 768) {
+      headerRef.current.className = "header header-mob header_active-touch"
+      setBurgerStatus(false)
+    }
+  });
+
+
 
   return (
-    <header className={`header ${burgerIsOpen ? '' : 'header_active'}`}>
+    <header ref={headerRef} className={`header ${burgerIsOpen ? '' : 'header_active'}`}>
       <div className="header__element">
         <Burger
           setBurgerStatus={setBurgerStatus}
@@ -27,9 +54,9 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </a>
       </div>
-      <Navbar burgerIsOpen={burgerIsOpen}/>
+      <Navbar burgerIsOpen={burgerIsOpen} />
 
-      {/* <User/> */}
+      <User  burgerIsOpen={burgerIsOpen} />
     </header>
   )
 }

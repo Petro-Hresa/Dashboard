@@ -39,7 +39,7 @@ const App = () => {
 
 export default App
 
-export const debounce = (fn: Function, ms = 1) => {
+export const debounce = (fn: Function, ms = 0) => {
   let timeoutId: ReturnType<typeof setTimeout>;
   return function (this: any, ...args: any[]) {
     clearTimeout(timeoutId);
