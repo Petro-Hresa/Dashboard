@@ -31,8 +31,10 @@ const Navbar = (props) => {
                   <span className="nav__icon">
                   <IconSvg name="product"/>
                   </span>
-                  Product
-                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
+                  
+                  <span className='nav__text'> Product </span>
+
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? 'nav__arrow_hide' : ''}`} />
                </NavLink>
             </li>
 
@@ -45,8 +47,8 @@ const Navbar = (props) => {
                   <span className="nav__icon">
                   <IconSvg name="customers"/>
                   </span>
-                  Customers
-                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
+                  <span className='nav__text'> Customers </span>
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? 'nav__arrow_hide' : ''}`} />
                </NavLink>
             </li>
 
@@ -58,8 +60,9 @@ const Navbar = (props) => {
                   <span className="nav__icon"> 
                   <IconSvg name="income" />
                   </span>
-                  Income
-                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
+                 
+                  <span className='nav__text'> Income </span>
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? 'nav__arrow_hide' : ''}`} />
                </NavLink>
             </li>
 
@@ -71,12 +74,13 @@ const Navbar = (props) => {
                   <span className="nav__icon">
                   <IconSvg name="promote"  />
                   </span> 
-                  Promote
-                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
+                  <span className='nav__text'> Promote </span>
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? 'nav__arrow_hide' : ''}`} />
                </NavLink>
             </li>
 
             <li className='nav__item'>
+
                <NavLink
                   to="/help"
                   className="nav__link text-500"
@@ -84,8 +88,9 @@ const Navbar = (props) => {
                   <span className="nav__icon">
                   <IconSvg name="help"  />
                   </span>
-                  Help
-                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? '' : 'nav__arrow_hide'}`} />
+                  
+                  <span className='nav__text'> Help </span>
+                  <IconSvg name="arrow" className={`nav__arrow ${props.burgerIsOpen ? 'nav__arrow_hide' : ''}`} />
                </NavLink>
             </li>
 

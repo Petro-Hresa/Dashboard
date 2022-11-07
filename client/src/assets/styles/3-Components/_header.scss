@@ -1,37 +1,25 @@
 .header {
-
-    &>*:not(:last-child){
-        margin-bottom: 20px;
-    }
-    width: $headerMaxWidth;
-    min-width: $headerMaxWidth;
-    display: flex;
-    flex-direction: column;
     padding: 36px 0;
     background: $white;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0px 0px 60px rgba(226, 236, 249, 0.5);
     overflow-y: auto;
     transition: width .3s linear , min-width .3s linear;
 
-    @media screen and (min-width: $min-md) and (max-width: $max-xxl) {
-
-        &_active{
-            width: $headerMinWidthDesctop;
-            min-width: $headerMinWidthDesctop;
-            transition: width .3s linear , min-width .3s linear;
-        }        
+    &>*:not(:last-child){
+        margin-bottom: 20px;
     }
-
 
     @media screen and (max-width: $max-md) {
         position: fixed;
-        width: $headerMinWidthMobile;
-        min-width: $headerMinWidthMobile;
+        width: 0;
+        min-width: 0;
         top: 0;
         bottom: 0;
-        left: -100%;
+        left: 0px;
         z-index: 10;
-        // transition: left .3s linear;    
+        transition: width .3s linear, min-width .3s linear;    
 
         &_active{
             left: 0;
@@ -40,13 +28,37 @@
         }
    
         &_active-touch{
-            left: 0;
-            // transition: left .3s linear;    
+            width: $headerMinWidthMobile;
+            min-width: $headerMinWidthMobile;
+            transition: width .3s linear, min-width .3s linear; 
         }
-        
-      
 
     }
+
+    @media screen and (min-width: $min-md) and (max-width: $max-xxl) {
+        width: $headerMinWidthDesctop;
+        min-width: $headerMinWidthDesctop;
+        transition: width .3s linear , min-width .3s linear;
+
+        &_active{
+            width: $headerMaxWidth;
+            min-width: $headerMaxWidth;
+        }    
+    }
+
+    @media screen and (min-width: $min-xxl) {
+        width: $headerMaxWidth;
+        min-width: $headerMaxWidth;
+    }
+
+    
+    
+
+
+
+
+
+
 
     
 
@@ -54,6 +66,7 @@
         padding: 0 31px;
         display: flex;
         align-items: center;
+
 
         @media screen and (max-width: $max-md) {
             position: fixed;

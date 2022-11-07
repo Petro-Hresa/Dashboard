@@ -18,9 +18,9 @@ const App = () => {
       <div className="wrap-content">
         <Header />
         <main className="main">
-          {/* <header className="main__header">
+          <header className="main__header">
             <div className="greeting">Hello Evano <span>👋🏼,</span></div>
-          </header> */}
+          </header>
           <div className="main__content">
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
@@ -46,6 +46,10 @@ export const debounce = (fn: Function, ms = 0) => {
     timeoutId = setTimeout(() => fn.apply(this, args), ms);
   };
 };
+
+
+
+
 
 export function changeState(setState: (arg: boolean) => void, tag: string) {
 

@@ -1,21 +1,4 @@
-// .burger__wrap{
-//    padding: 10px 0 10px 10px;
-//    @media screen and (min-width: $lg) and (max-width:$xxl) {
-//       cursor: pointer;
-//    }
-// }
 
-// .burger-mob__wrap{
-//    margin-right: 40px;
-//    padding: 25px 25px 25px 0;
-//    @media screen and (min-width: 769px) {
-//       display: none;
-//    }
-// }
-
-// .burger__transform{
-//    transform: translateX(-12px);
-// }
 
 @media screen and (max-width: $max-xxl) {
 
@@ -28,12 +11,72 @@
          height: 2px;
          background-color: rgb(49, 49, 49);
          margin-bottom: 7px;
-
+         transition: width .3s linear; 
          &:last-child {
             margin-bottom: 0;
          }
       }
 
+      &_active &__line{
+
+         &:nth-child(1){
+            width: 15px;
+         }
+
+         &:nth-child(2){
+            width: 20px;
+         }
+        
+      }
+
    }
 
+}
+
+@media screen and (max-width: $max-xxl) {
+
+   .burger {
+      padding: 10px;
+      margin-right: 20px;
+      
+      &__line {
+         width: 25px;
+         height: 2px;
+         background-color: rgb(49, 49, 49);
+         margin-bottom: 7px;
+         transition: width .3s linear; 
+         &:last-child {
+            margin-bottom: 0;
+         }
+      }
+
+      &_active &__line{
+
+         &:nth-child(1){
+            width: 15px;
+         }
+
+         &:nth-child(2){
+            width: 20px;
+         }
+        
+      }
+
+   }
+
+}
+
+.header_active-touch .burger {
+
+   &__line{
+
+      &:nth-child(1){
+         width: 15px;
+      }
+
+      &:nth-child(2){
+         width: 25px !important;
+      }
+     
+   }
 }

@@ -20,9 +20,12 @@ body {
     min-height: 100%;
 }
 
+
 body {
     background-color: $bg-primary;
     height: 100%;
+
+   
 
     .text-400 {
         font-family: 'Poppins';
@@ -39,6 +42,11 @@ body {
         font-size: 14px;
         line-height: 21px;
         letter-spacing: -0.01em;
+    }
+
+    .shadow-block{
+        box-shadow: 0px 0px 60px rgba(226, 236, 249, 0.5);
+        transition: box-shadow .3s linear;
     }
 
     .wrap-content{

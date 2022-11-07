@@ -6,10 +6,16 @@
     overflow: hidden;
     min-width: 42px;
     min-height: 42px;
+    width: 100%;
 
     @media screen and (max-width: $max-md) {
- 
        padding: 0 20px;
+    }
+
+    &_center {
+        // justify-content: center;
+        //     margin: 0 4px;
+        //     transition: margin .3s;
     }
 
     &__icon {
@@ -22,11 +28,6 @@
         border-radius: 50%;
         overflow: hidden;
         transition: margin .3s;
-
-        &_center {
-            margin: 0 4px;
-            transition: margin .3s;
-        }
     }
 
     &__img {
@@ -40,6 +41,7 @@
 
     &__text {
         white-space: nowrap;
+        border: 1px solid #000;
 
         @media screen and (min-width: $min-md) {
             transition: opacity .3s linear;            
@@ -47,6 +49,10 @@
         &_hide{
             opacity: 0;
         }
+    }
+
+    &_center &__text{
+        display: none;
     }
 
     &__name {
@@ -63,8 +69,8 @@
     }
 }
 
-.header_active .user__text_hide{
-    @media screen and (max-width: $max-md) {
-        opacity: 1;
-    }
-}
+// .header_active .user__text_hide{
+//     @media screen and (max-width: $max-md) {
+//         opacity: 1;
+//     }
+// }

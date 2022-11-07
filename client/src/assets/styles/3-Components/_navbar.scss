@@ -30,12 +30,19 @@
         color: $color-primary;
         position: relative;
 
+
         &.active {
             background: rgb(89, 50, 234);
             color: $white;
         }
 
 
+    }
+
+    &__text{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
 
@@ -50,30 +57,20 @@
         right: 14px;
         transform: translateY(-50%);
 
-        @media screen and (min-width: $min-md) and (max-width: $max-xxl) {
+
+        @media screen and (max-width: $max-xxl) {
             transition: opacity .2s linear;
             &_hide {
                 opacity: 0;
             }
         }
 
-        @media screen and (max-width: $max-md) {
-            &_hide {
-                opacity: 0;
-            }
-        }
     }
 
-    .header_active-touch &__arrow_hide {
-        @media screen and (max-width: $min-md) {
-            opacity: 0;
-        }
-    }
+}
 
-    .header_active &__arrow_hide {
-        @media screen and (max-width: $min-md) {
-            opacity: 1;
-        }
-    }
-
+.header_active-touch .nav{
+    &__arrow{
+        display: none;
+    } 
 }
