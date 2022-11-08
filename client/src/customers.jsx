@@ -8,7 +8,6 @@ import axios from 'axios';
 const CustomersSE = () => {
 
    const [arrCustomers, setArrCustomers] = useState([])
-   const arrNameCols = ['Customer Name', 'Company', 'Phone Number', 'Email', 'Country', 'Status']
 
    useEffect(() => {
       axios.get('http://localhost:3001/customers?page=1&count=4').then((req, res) => {
@@ -35,7 +34,6 @@ const CustomersSE = () => {
    }
 
    return <CustomersUI
-      arrNameCols={arrNameCols}
       arrCustomers={arrCustomers}
       updataStatus={updataStatus}
    />
@@ -49,26 +47,29 @@ const CustomersUI = (props) => {
 
    return (
       <section className="customers">
+
+
+         
          <header className="customers__head">
-            <div className="title">
-               <h1 className='title__h1'>All Customers</h1>
-               <div className="title__status text-400">Active Members</div>
+            <div className="gtoup-title">
+               <h1 className='gtoup-title__title'>All Customers</h1>
+               <h5 className="gtoup-title__subtitle text-400">Active Members</h5>
             </div>
             <Search />
          </header>
 
-         <div className="cuctomers-table__wrap">
             <table className='table'>
                <thead className='table__thead'>
                   <tr>
-                     {
-                        props.arrNameCols.map((colName, i) => {
-                           return <th key={i} className='text-500'>{colName}</th>
-                        })
-                     }
+                    <th className='text-500'>Customer Name</th>
+                    <th className='text-500'>Company</th>
+                    <th className='text-500'>Phone Number</th>
+                    <th className='text-500'>Email</th>
+                    <th className='text-500'>Country</th>
+                    <th className='text-500'>Status</th>
                   </tr>
                </thead>
-               <tbody>
+               <tbody className='table__tbody'>
                   {
                      props.arrCustomers.map((costomer) => {
                         return <tr key={costomer.id} className="table__row text-500">
@@ -95,7 +96,7 @@ const CustomersUI = (props) => {
                <div className="more__show-data text-500">Showing data 1 to 8 of  256K entries</div>
                <Pagination />
             </footer>
-         </div>
+
       </section>
    )
 }

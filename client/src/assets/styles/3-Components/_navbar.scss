@@ -2,7 +2,7 @@
     margin: 52px 0;
     padding: 0 28px;
     flex: 1 1 auto;
-    overflow: auto;
+
 
     @media screen and (max-width: $max-md) {
         padding: 0 20px;
@@ -10,8 +10,42 @@
     }
 
     &__item {
-        position: relative;
         margin-bottom: 15px;
+     
+
+        @media screen and (min-width: $min-md) and (max-width: $max-xxl){
+            
+            &.nav__tooltip:hover:after{
+                content: attr(data-tooltip);
+                position: absolute;
+                transform: translate(60px, -42px);
+                z-index: 100;
+                color: $white;
+                background-color: $color-secondary;
+                font-family: 'Poppins';
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+                letter-spacing: -0.01em;
+                border-radius: 8px;
+                padding: 9px 12px;
+
+            }         
+
+        }
+
+  
+
+      
+
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        padding: 10px 35px 10px 12px;
+        color: $color-primary;
+        position: relative;
         overflow: hidden;
         border-radius: 8px;
 
@@ -20,16 +54,6 @@
             background-color: #F9FBFF;
             transition: background-color .3s linear;
         }
-
-    }
-
-    &__link {
-        display: flex;
-        align-items: center;
-        padding: 13px 35px 13px 13px;
-        color: $color-primary;
-        position: relative;
-
 
         &.active {
             background: rgb(89, 50, 234);
@@ -70,6 +94,7 @@
 }
 
 .header_active-touch .nav {
+
     &__arrow {
         display: none;
     }

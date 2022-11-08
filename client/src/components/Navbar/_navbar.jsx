@@ -11,7 +11,7 @@ const Navbar = (props) => {
       <nav className="nav">
          <ul>
 
-            <li className='nav__item'>
+            <li className={`nav__item ${props.burgerIsOpen ? 'nav__tooltip' :'' }`} data-tooltip="Dashboard">
                <NavLink
                   to="/dashboard"
                   className="nav__link text-500"
@@ -23,7 +23,7 @@ const Navbar = (props) => {
                </NavLink>
             </li>
 
-            <li className='nav__item'>
+            <li className={`nav__item ${props.burgerIsOpen ? 'nav__tooltip' :'' }`} data-tooltip="Product">
                <NavLink
                   to="/product"
                   className="nav__link text-500"
@@ -39,7 +39,7 @@ const Navbar = (props) => {
             </li>
 
 
-            <li className='nav__item'>
+            <li className={`nav__item ${props.burgerIsOpen ? 'nav__tooltip' :'' }`} data-tooltip="Customers">
                <NavLink
                   to="/customers"
                   className="nav__link text-500"
@@ -52,7 +52,7 @@ const Navbar = (props) => {
                </NavLink>
             </li>
 
-            <li className='nav__item'>
+            <li className={`nav__item ${props.burgerIsOpen ? 'nav__tooltip' :'' }`} data-tooltip="Income">
                <NavLink
                   to="/income"
                   className="nav__link text-500"
@@ -66,7 +66,7 @@ const Navbar = (props) => {
                </NavLink>
             </li>
 
-            <li className='nav__item'>
+            <li className={`nav__item ${props.burgerIsOpen ? 'nav__tooltip' :'' }`} data-tooltip="Promote">
                <NavLink
                   to="/promote"
                   className="nav__link text-500"
@@ -79,7 +79,7 @@ const Navbar = (props) => {
                </NavLink>
             </li>
 
-            <li className='nav__item'>
+            <li className={`nav__item ${props.burgerIsOpen ? 'nav__tooltip' :'' }`} data-tooltip="Help">
 
                <NavLink
                   to="/help"

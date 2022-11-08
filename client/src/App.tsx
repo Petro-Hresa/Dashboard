@@ -18,14 +18,14 @@ const App = () => {
       <div className="wrap-content">
         <Header />
         <main className="main">
-          <header className="main__header">
+          <div className="main__head-box">
             <div className="greeting">Hello Evano <span>👋🏼,</span></div>
-          </header>
+          </div>
           <div className="main__content">
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
-              {/* <Route path="/product" element={<Product />} /> */}
-              {/* <Route path="/customers" element={<Customers />} /> */}
+              <Route path="/product" element={<Product />} />
+              <Route path="/customers" element={<Customers />} />
               {/* <Route path="/income" element={<Income />} /> */}
               {/* <Route path="/promote" element={<Promote />} /> */}
               {/* <Route path="/help" element={<Help />} /> */}

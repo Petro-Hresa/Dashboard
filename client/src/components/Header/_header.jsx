@@ -36,7 +36,7 @@ const Header = () => {
 
 
   return (
-    <header ref={headerRef} className={`header preload-transition ${burgerIsOpen ? '' : 'header_active'}`}>
+    <header ref={headerRef} className={`header ${burgerIsOpen ? '' : 'header_active'}`}>
 
     <div ref={headerElementRef} className={`header__element ${burgerIsOpen ? "shadow-block": ""}`}>
         <Burger
