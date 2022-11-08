@@ -14,19 +14,6 @@ const Header = () => {
   const headerElementRef = useRef()
 
   useEffect(() => {
-    // changeState(setBurgerStatus, 'header')
-
-
-  //  const observer = new ResizeObserver((entrise) => {
-  //     let isMedium = entrise[0].contentRect.width >= 768;
-
-  //     // isMedium && console.log('burgerIsOpen',burgerIsOpen);
-  //     // if(burgerIsOpen == false && isMedium) setBurgerStatus(!burgerIsOpen)
-      
-  //   })
-
-    // observer.observe(document.body)
-    // console.log(document.body);
 
     document.addEventListener('mousedown', (e) => {
       e.stopPropagation();
@@ -37,7 +24,7 @@ const Header = () => {
 
     document.addEventListener("touchmove", (e) => {
       if (window.innerWidth <= 768) {
-        headerRef.current.className = "header header-mob header_active-touch"
+        headerRef.current.className = "header header_active-touch"
         setBurgerStatus(false)
       }
     });

@@ -2,8 +2,8 @@ import React from 'react'
 import UserImg from '../../assets/images/user.jpg'
 const User = (props) => {
    return (
-      <div className={`user ${props.burgerIsOpen ? 'user_center' : ''}`}>
-         <div className={`user__icon`}>
+      <div className='user'>
+         <div className='user__icon'>
             <img className="user__img" src={UserImg} alt="Evano" />
          </div>
 

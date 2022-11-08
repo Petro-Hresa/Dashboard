@@ -1,32 +1,31 @@
-
-
 @media screen and (max-width: $max-xxl) {
 
    .burger {
       padding: 10px;
       margin-right: 20px;
-      
+
       &__line {
          width: 25px;
          height: 2px;
          background-color: rgb(49, 49, 49);
          margin-bottom: 7px;
-         transition: width .3s linear; 
+         transition: width .3s linear;
+
          &:last-child {
             margin-bottom: 0;
          }
       }
 
-      &_active &__line{
+      &_active &__line {
 
-         &:nth-child(1){
+         &:nth-child(1) {
             width: 15px;
          }
 
-         &:nth-child(2){
+         &:nth-child(2) {
             width: 20px;
          }
-        
+
       }
 
    }
@@ -38,28 +37,29 @@
    .burger {
       padding: 10px;
       margin-right: 20px;
-      
+
       &__line {
          width: 25px;
          height: 2px;
          background-color: rgb(49, 49, 49);
          margin-bottom: 7px;
-         transition: width .3s linear; 
+         transition: width .3s linear;
+
          &:last-child {
             margin-bottom: 0;
          }
       }
 
-      &_active &__line{
+      &_active &__line {
 
-         &:nth-child(1){
+         &:nth-child(1) {
             width: 15px;
          }
 
-         &:nth-child(2){
+         &:nth-child(2) {
             width: 20px;
          }
-        
+
       }
 
    }
@@ -68,15 +68,15 @@
 
 .header_active-touch .burger {
 
-   &__line{
+   &__line {
 
-      &:nth-child(1){
+      &:nth-child(1) {
          width: 15px;
       }
 
-      &:nth-child(2){
+      &:nth-child(2) {
          width: 25px !important;
       }
-     
+
    }
 }

@@ -51,23 +51,23 @@ export const debounce = (fn: Function, ms = 0) => {
 
 
 
-export function changeState(setState: (arg: boolean) => void, tag: string) {
+// export function changeState(setState: (arg: boolean) => void, tag: string) {
 
-  if (window.innerWidth <= 768 && tag == 'header') setState(true)
+//   if (window.innerWidth <= 768 && tag == 'header') setState(true)
   // if (window.innerWidth > 768 && tag == 'navbar') fnStateCap(true)
 
-  window.addEventListener('resize', debounce(() => {
+  // window.addEventListener('resize', debounce(() => {
 
-    switch (tag) {
-      case 'header':
-        window.innerWidth <= 768 ? setState(true) : setState(false)
-      break;
+    // switch (tag) {
+    //   case 'header':
+    //     window.innerWidth <= 768 ? setState(true) : setState(false)
+    //   break;
 
       // case 'navbar':
       //   window.innerWidth > 768 ?  fnStateCap(true) : fnStateCap(false)
       // break;
-    }
+//     }
 
-  }))
-}
+//   }))
+// }
 
