@@ -8,9 +8,17 @@ import axios from 'axios';
 const CustomersSE = () => {
 
    const [arrCustomers, setArrCustomers] = useState([])
+   const [currentPage, setCurrentPage] = useState(1)
+   const [quantityCustomers, setQuantityCustomers] = useState(5)
+
+   const indexLastCustomer = currentPage * quantityCustomers
+   const indexFirstCustomer = indexLastCustomer - quantityCustomers
+   const currentCustomers =  arrCustomers.slice(indexFirstCustomer, indexLastCustomer)
+
+   const customersLangth = arrCustomers.length
 
    useEffect(() => {
-      axios.get('http://localhost:3001/customers?page=1&count=4').then((req, res) => {
+      axios.get('http://localhost:3001/customers').then((req, res) => {
          setArrCustomers(req.data);
          console.log(req);
       })
@@ -34,8 +42,10 @@ const CustomersSE = () => {
    }
 
    return <CustomersUI
-      arrCustomers={arrCustomers}
+      arrCustomers={customersLangth}
       updataStatus={updataStatus}
+      quantityCustomers={quantityCustomers}
+      currentCustomers={currentCustomers}
    />
 
 }
@@ -44,7 +54,7 @@ export default CustomersSE
 
 
 const CustomersUI = (props) => {
-
+   console.log(props.arrCustomers); 
    return (
       <section className="customers">
 
@@ -71,7 +81,7 @@ const CustomersUI = (props) => {
                </thead>
                <tbody className='table__tbody'>
                   {
-                     props.arrCustomers.map((costomer) => {
+                     props.currentCustomers.map((costomer) => {
                         return <tr key={costomer.id} className="table__row text-500">
                            <td data-label="Customer Name">{costomer.name}</td>
                            <td data-label="Company">{costomer.company}</td>
@@ -86,6 +96,7 @@ const CustomersUI = (props) => {
                                  {costomer.status ? "Active" : "Inactive"}
                               </button>
                            </td>
+                          
                         </tr>
                      })
                   }
@@ -94,7 +105,10 @@ const CustomersUI = (props) => {
 
             <footer className="more">
                <div className="more__show-data text-500">Showing data 1 to 8 of  256K entries</div>
-               <Pagination />
+               <Pagination 
+                  quantityCustomers={props.quantityCustomers}
+                  // totalCustomers = {props.arrCustomers} 
+               />
             </footer>
 
       </section>

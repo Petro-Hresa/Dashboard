@@ -43,7 +43,7 @@
 
    .table {
       text-align: left;
-   
+
 
       tr>th,
       td {
@@ -54,15 +54,27 @@
 
       &__thead {
 
-         tr{
-            margin-right: -40px;
+         tr {
             border-bottom: 1px solid #EEEEEE;
-         }
+            &>th {
+               padding: 14px 4.8em 14px 0;
+               color: #B5B7C0;
+               position: relative;
 
-         tr>th {
-            padding: 14px 4.8em 14px 0;
-            color: #B5B7C0;
+               &:first-child,
+               &:last-child{
+                  &::after{
+                     content: '';
+                     position: absolute;
+                     width: 40px;
+                     border-bottom: 1px solid #EEEEEE;
+                     bottom: -1px;
+                  }
+               }
 
+               &:first-child::after{right: 100%;}
+               &:last-child::after{left: 100%;}
+            }
          }
       }
 
@@ -71,7 +83,7 @@
          tr>td {
             line-height: 1.1;
             color: $color-secondary;
-            padding: 24px  24px  24px 0;
+            padding: 24px 24px 24px 0;
             border-bottom: 1px solid #EEEEEE;
 
             &:last-child {
